@@ -23,7 +23,7 @@ echo "-- Installing toolbox --"
 curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xzvf - -C /opt/jetbrains-toolbox
 sudo ln -s /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
 
-echo '[Desktop Entry]
+echo "[Desktop Entry]
 Icon=jetbrains-toolbox
 Exec=${HOME}/.local/bin/jetbrains-toolbox %u
 Version=1.0
@@ -39,8 +39,7 @@ X-Installed-Icon-Cache-Path=,~/.local/share/icons/hicolor
 StartupNotify=false
 X-GNOME-Autostart-Delay=10
 X-MATE-Autostart-Delay=10
-X-KDE-autostart-after=panel' > ~/.local/share/applications/jetbrains-toolbox.desktop
-
+X-KDE-autostart-after=panel" > ~/.local/share/applications/jetbrains-toolbox.desktop
 echo
 echo "-- Installing programs for game developing --"
 # Resolve latest download url for Tiled
@@ -60,10 +59,9 @@ sudo mkdir -p ~/.local/share/icons/hicolor/64x64/apps/
 wget -qO- "https://github.com/mapeditor/tiled/raw/refs/heads/master/src/tiled/resources/images/tiled-icon.ico" |
 sudo magick ico:-[0] $tiled_icon
 
-echo '[Desktop Entry
+echo "[Desktop Entry
 Name=Tiled
 Exec=${HOME}/.local/bin/tiled.AppImage
 Icon=${tiled_icon}
 Type=Application
-Categories=Development;Graphics;' > ~/.local/share/applications/tiled.desktop
-
+Categories=Development;Graphics;" > ~/.local/share/applications/tiled.desktop

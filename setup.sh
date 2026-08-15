@@ -55,7 +55,7 @@ select(
 wget ${tiled_url} -O ~/.local/bin/tiled.AppImage
 sudo mkdir -p ~/.local/share/icons/hicolor/64x64/apps
 wget -qO- "https://github.com/mapeditor/tiled/raw/refs/heads/master/src/tiled/resources/images/tiled-icon.ico" |
-magick ico:-[0] ~/.local/share/icons/hicolor/64x64/apps/tiled.png
+sudo magick ico:-[0] ~/.local/share/icons/hicolor/64x64/apps/tiled.png
 
 echo '[Desktop Entry
 Name=Tiled

@@ -13,12 +13,7 @@ sudo apt install librewolf python3 python3-pip python3-venv pipx imagemagick -y
 
 mkdir -p ~/.config/custom/librewolf/profiles
 
-curl -L \
-  "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" \
-  -o /tmp/jetbrains-toolbox.tar.gz
-
-sudo tar -xf /tmp/jetbrains-toolbox.tar.gz -C /opt/
-sudo mv /opt/jetbrains-toolbox* /opt/jetbrains-toolbox
+curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xf - -C /opt/jetbrains-toolbox
 sudo ln -s /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
 echo '[Desktop Entry]
 Icon=jetbrains-toolbox

@@ -21,7 +21,7 @@ mkdir -p ~/.config/custom/librewolf/profiles
 echo
 echo "-- Installing toolbox --"
 
-toolbox-dir="/opt/jetbrains-toolbox"
+toolbox_dir='/opt/jetbrains-toolbox'
 rm -rf $toolbox_dir
 mkdir -p $toolbox_dir
 curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xzvf - -C $toolbox-dir
@@ -55,8 +55,9 @@ select(
 ) | 
 .browser_download_url'
 )
-wget ${tiled_url} -O ~/.local/bin/tiled.AppImage
-
+tiled_app="${HOME}/.local/bin/tiled.AppImage"
+wget ${tiled_url} -O "$(tiled_app)"
+sudo chmod +x $tiled_app
 tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps"
 tiled_icon="${tiled_icon_dir}/tiled.png"
 sudo mkdir -p ~/.local/share/icons/hicolor/64x64/apps/

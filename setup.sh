@@ -67,7 +67,7 @@ select(
 ) | 
 .browser_download_url'
 )
-wget "${tiled_url} -O "${tiled_app}"
+wget "${tiled_url}" -O "${tiled_app}"
 sudo chmod +x $tiled_app
 tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps"
 tiled_icon="${tiled_icon_dir}/tiled.png"

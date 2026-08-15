@@ -46,7 +46,19 @@ X-MATE-Autostart-Delay=10
 X-KDE-autostart-after=panel" > ~/.local/share/applications/jetbrains-toolbox.desktop
 echo
 echo "-- Installing programs for game developing --"
+# -- TILED --
+tiled_app="${HOME}/.local/bin/tiled.AppImage"
 # Resolve latest download url for Tiled
+tiled_digest=$(curl -fsSL https://api.github.com/repos/mapeditor/tiled/releases/latest | jq -r '.assets[] | 
+select(
+        (.name | endswith(".AppImage")) 
+        and 
+        (.name | contains("x86_64"))
+) | 
+  .digest'
+)
+tiled_hash=$(echo "$digest" | cut -d':' -f2) # SHA256
+
 tiled_url=$(curl -fsSL https://api.github.com/repos/mapeditor/tiled/releases/latest | jq -r '.assets[] | 
 select(
 	(.name | endswith(".AppImage")) 
@@ -55,7 +67,6 @@ select(
 ) | 
 .browser_download_url'
 )
-tiled_app="${HOME}/.local/bin/tiled.AppImage"
 wget "${tiled_url} -O "${tiled_app}"
 sudo chmod +x $tiled_app
 tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps"
@@ -70,3 +81,4 @@ Exec=${HOME}/.local/bin/tiled.AppImage
 Icon=${tiled_icon}
 Type=Application
 Categories=Development;Graphics;" > ~/.local/share/applications/tiled.desktop
+# -- TILED END --

@@ -21,7 +21,7 @@ mkdir -p ~/.config/custom/librewolf/profiles
 echo
 echo "-- Installing toolbox --"
 curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xzvf - -C /opt/jetbrains-toolbox
-sudo ln -s /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
+sudo ln -sfn /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
 
 echo "[Desktop Entry]
 Icon=jetbrains-toolbox

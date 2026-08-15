@@ -62,7 +62,7 @@ tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps"
 tiled_icon="${tiled_icon_dir}/tiled.png"
 mkdir -p ~/.local/share/icons/hicolor/64x64/apps/
 wget -qO- "https://github.com/mapeditor/tiled/raw/refs/heads/master/src/tiled/resources/images/tiled-icon.ico" |
-sudo magick ico:-[0] $tiled_icon
+magick ico:-[0] $tiled_icon
 
 echo "[Desktop Entry]
 Name=Tiled

@@ -23,8 +23,8 @@ echo "-- Installing toolbox --"
 
 toolbox_dir='/opt/jetbrains-toolbox'
 sudo rm -rf $toolbox_dir
-sudo mkdir -p $toolbox_dir
-curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xzvf - -C $toolbox_dir
+curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xzvf - -C 
+sudo mv /opt/jetbrains-toolbox* "${toolbox_dir}"
 ln -sfn /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
 
 echo "[Desktop Entry]

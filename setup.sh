@@ -25,7 +25,7 @@ sudo ln -s /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-t
 
 echo '[Desktop Entry]
 Icon=jetbrains-toolbox
-Exec=~/.local/bin/jetbrains-toolbox %u
+Exec=${HOME}/.local/bin/jetbrains-toolbox %u
 Version=1.0
 Type=Application
 Categories=Development
@@ -34,7 +34,7 @@ StartupWMClass=jetbrains-toolbox
 Terminal=false
 MimeType=
 X-GNOME-Autostart-enabled=true
-X-Icon-Path=~/.local/share/icons/hicolor/scalable/apps/jetbrains-toolbox.svg
+X-Icon-Path=${HOME}/.local/share/icons/hicolor/scalable/apps/jetbrains-toolbox.svg
 X-Installed-Icon-Cache-Path=,~/.local/share/icons/hicolor
 StartupNotify=false
 X-GNOME-Autostart-Delay=10
@@ -53,14 +53,17 @@ select(
 .browser_download_url'
 )
 wget ${tiled_url} -O ~/.local/bin/tiled.AppImage
-sudo mkdir -p ~/.local/share/icons/hicolor/64x64/apps
+
+tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps/"
+tiled_icon="${tiled_icon_dir}/tiled.png"
+sudo mkdir -p ~/.local/share/icons/hicolor/64x64/apps/
 wget -qO- "https://github.com/mapeditor/tiled/raw/refs/heads/master/src/tiled/resources/images/tiled-icon.ico" |
-sudo magick ico:-[0] ~/.local/share/icons/hicolor/64x64/apps/tiled.png
+sudo magick ico:-[0] $tiled_icon
 
 echo '[Desktop Entry
 Name=Tiled
-Exec=~/.local/bin/tiled.AppImage
-Icon=tiled
+Exec=${HOME}/.local/bin/tiled.AppImage
+Icon=${tiled_icon}
 Type=Application
 Categories=Development;Graphics;' > ~/.local/share/applications/tiled.desktop
 

@@ -56,7 +56,7 @@ select(
 )
 wget ${tiled_url} -O ~/.local/bin/tiled.AppImage
 
-tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps/"
+tiled_icon_dir="${HOME}/.local/share/icons/hicolor/64x64/apps"
 tiled_icon="${tiled_icon_dir}/tiled.png"
 sudo mkdir -p ~/.local/share/icons/hicolor/64x64/apps/
 wget -qO- "https://github.com/mapeditor/tiled/raw/refs/heads/master/src/tiled/resources/images/tiled-icon.ico" |

@@ -119,5 +119,5 @@ Name=Tiled
 Exec=${HOME}/.local/bin/tiled.AppImage
 Icon=${tiled_icon}
 Type=Application
-Categories=Development;Graphics;" > ~/.local/share/applications/tiled.desktop
+Categories=Development,Graphics" > ~/.local/share/applications/tiled.desktop
 # -- TILED END --

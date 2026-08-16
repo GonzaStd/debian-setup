@@ -13,21 +13,25 @@ function check_integrity() {
 }
 
 function download() {
-  local url=$1
-  local path=$2
-  local expected_hash=$3
-  local retries=${4:-0}
-  wget $url -O $path
-  while ! check_integrity $path $expected_hash && (( retries < 3 )); do
-    echo "Retry ${retries}"
-    rm -f $path
-    download $1 $2 $3 (( $retries+1 ))
-  done
-  if (( retries >= 3 )); then
-    echo "Integrity check failed. Integrity of the file is wrong or expected hash provided is wrong."
+    local url="$1"
+    local path="$2"
+    local expected_hash="$3"
+    local retries=0
+
+    while (( retries < 3 )); do
+        wget "$url" -O "$path"
+
+        if check_integrity "$path" "$expected_hash"; then
+            return 0
+        fi
+
+        echo "Retry $((retries + 1))"
+        rm -f "$path"
+        ((retries++))
+    done
+
+    echo "Integrity check failed."
     return 1
-  fi
-  return 0
 }
 
 echo "-- Installing and configuring repositories --"

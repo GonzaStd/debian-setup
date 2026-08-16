@@ -115,7 +115,7 @@ if ! command -v tiled >/dev/null 2>&1; then
   sudo chmod +x $tiled_app
   tiled_icon_dir="/usr/share/icons/hicolor/64x64/apps/"
   tiled_icon="${tiled_icon_dir}/tiled.png"
-  if [ ! -f tiled_icon ]; then # get icon
+  if [ ! -f "$tiled_icon" ]; then # get icon
       mkdir -p $tiled_icon_dir
       wget -qO- "https://github.com/mapeditor/tiled/raw/refs/heads/master/src/tiled/resources/images/tiled-icon.ico" |
       magick ico:-[0] $tiled_icon

@@ -113,7 +113,7 @@ if ! command -v tiled >/dev/null 2>&1; then
     wget "${tiled_url}" -O "${tiled_app}"
   fi
   sudo chmod +x $tiled_app
-  tiled_icon_dir="/usr/share/icons/hicolor/64x64/apps/"
+  tiled_icon_dir="${HOME}/.loca/share/icons/hicolor/64x64/apps/"
   tiled_icon="${tiled_icon_dir}/tiled.png"
   if [ ! -f "$tiled_icon" ]; then # get icon
       mkdir -p $tiled_icon_dir

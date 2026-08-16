@@ -19,12 +19,12 @@ function download() {
 
   wget $url -O $path
   retries=0
-  while ! check_integrity $path $expected_hash && [ retries<=2  ]; do
+  while ! check_integrity $path $expected_hash && (( retries < 3 )); do
     echo "Retry ${retries}"
     rm -f $path
     download $1 $2 $3
   done
-  if [ retries == 3 ]; then
+  if (( retries >= 3 )); then
     echo "Integrity check failed. Integrity of the file is wrong or expected hash provided is wrong."
     return 1
   fi

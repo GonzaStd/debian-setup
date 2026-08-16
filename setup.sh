@@ -108,7 +108,7 @@ if ! command -v tiled >/dev/null 2>&1; then
       rm -f $tiled_app
       download $tiled_url $tiled_app $tiled_hash
     fi
-    echo "You already have latest version of tiled.AppImage at ${tiled_app}! Download skipped."
+    echo "You already have latest version of tiled.AppImage at ${tiled_app}! Download skipped." # As $tiled_hash contains the hash of the latest release from github, we conclude it is the latest version.
   else
     wget "${tiled_url}" -O "${tiled_app}"
   fi

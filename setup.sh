@@ -59,22 +59,22 @@ if ! command -v toolbox >/dev/null 2>&1; then
   ln -sfn /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
   cp /opt/jetbrains-toolbox/bin/toolbox.svg /usr/share/icons/hicolor/scalable/apps/toolbox.svg
   echo "[Desktop Entry]
-  Icon=jetbrains-toolbox
-  Exec=${HOME}/.local/bin/jetbrains-toolbox %u
-  Version=1.0
-  Type=Application
-  Categories=Development
-  Name=JetBrains Toolbox
-  StartupWMClass=jetbrains-toolbox
-  Terminal=false
-  MimeType=
-  X-GNOME-Autostart-enabled=true
-  X-Icon-Path=${HOME}/.local/share/icons/hicolor/scalable/apps/jetbrains-toolbox.svg
-  X-Installed-Icon-Cache-Path=,~/.local/share/icons/hicolor
-  StartupNotify=false
-  X-GNOME-Autostart-Delay=10
-  X-MATE-Autostart-Delay=10
-  X-KDE-autostart-after=panel" > ~/.local/share/applications/jetbrains-toolbox.desktop
+Icon=jetbrains-toolbox
+Exec=${HOME}/.local/bin/jetbrains-toolbox %u
+Version=1.0
+Type=Application
+Categories=Development
+Name=JetBrains Toolbox
+StartupWMClass=jetbrains-toolbox
+Terminal=false
+MimeType=
+X-GNOME-Autostart-enabled=true
+X-Icon-Path=${HOME}/.local/share/icons/hicolor/scalable/apps/jetbrains-toolbox.svg
+X-Installed-Icon-Cache-Path=,~/.local/share/icons/hicolor
+StartupNotify=false
+X-GNOME-Autostart-Delay=10
+X-MATE-Autostart-Delay=10
+X-KDE-autostart-after=panel" > ~/.local/share/applications/jetbrains-toolbox.desktop
 else
   echo "You already have jetbrains-toolbox! If you still want to set it up with this script, remove it first. It is at $(command -v toolbox)"
 fi
@@ -123,11 +123,11 @@ if ! command -v tiled >/dev/null 2>&1; then
   fi
 
   echo "[Desktop Entry]
-  Name=Tiled
-  Exec=${HOME}/.local/bin/tiled.AppImage %u
-  Icon=tiled
-  Type=Application
-  Categories=Development,Graphics" > ~/.local/share/applications/tiled.desktop
+Name=Tiled
+Exec=${HOME}/.local/bin/tiled.AppImage %u
+Icon=tiled
+Type=Application
+Categories=Development;Graphics;" > ~/.local/share/applications/tiled.desktop
 else
   echo "You already have tiled! (At least a command or an alias named like that) If you still want to set it up with this script, remove it first. It is at $(command -v tiled)"
 fi

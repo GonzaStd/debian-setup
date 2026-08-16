@@ -3,7 +3,7 @@
 function check_integrity() {
   file=$1
   expected_hash=$2
-  existent_hash=$(sha256sum "${file}")
+  existent_hash=$(sha256sum "${file}" | cut -d' ' -f1)
   if ! cmp <("${existent_hash}") <("${expected_hash}"); then
     return 1
   fi

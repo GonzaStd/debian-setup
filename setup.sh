@@ -1,9 +1,10 @@
 #!/bin/bash
 
 function check_integrity() {
-  file=$1
-  expected_hash=$2
-  existent_hash=$(sha256sum "${file}" | cut -d' ' -f1)
+  local file=$1
+  local expected_hash=$2
+  local existent_hash=$(sha256sum "${file}" | cut -d' ' -f1)
+
   if [[ "${existent_hash}" != "${expected_hash}" ]]; then
     return 1
   fi
@@ -12,9 +13,10 @@ function check_integrity() {
 }
 
 function download() {
-  url=$1
-  path=$2
-  expected_hash=$3
+  local url=$1
+  local path=$2
+  local expected_hash=$3
+
   wget $url -O $path
   retries=0
   while ! check_integrity $path $expected_hash && [ retries<=2  ]; do

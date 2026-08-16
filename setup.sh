@@ -93,7 +93,7 @@ if ! command -v tiled >/dev/null 2>&1; then
   ) | 
     .digest'
   )
-  tiled_hash=$(echo "$digest" | cut -d':' -f2) # SHA256
+  tiled_hash=$(echo "$tiled_digest" | cut -d':' -f2) # SHA256
 
   tiled_url=$(curl -fsSL https://api.github.com/repos/mapeditor/tiled/releases/latest | jq -r '.assets[] | 
   select(

@@ -60,25 +60,7 @@ if ! command -v toolbox >/dev/null 2>&1; then
   sudo rm -rf $toolbox_dir
   curl -fsSL "https://data.services.jetbrains.com/products/download?code=TBA&platform=linux" | sudo tar -xzf - -C /opt/ 
   sudo mv /opt/jetbrains-toolbox* "${toolbox_dir}"
-  ln -sfn /opt/jetbrains-toolbox/bin/jetbrains-toolbox ~/.local/bin/jetbrains-toolbox
-  cp /opt/jetbrains-toolbox/bin/toolbox.svg /usr/share/icons/hicolor/scalable/apps/toolbox.svg
-  echo "[Desktop Entry]
-Icon=jetbrains-toolbox
-Exec=${HOME}/.local/bin/jetbrains-toolbox %u
-Version=1.0
-Type=Application
-Categories=Development
-Name=JetBrains Toolbox
-StartupWMClass=jetbrains-toolbox
-Terminal=false
-MimeType=
-X-GNOME-Autostart-enabled=true
-X-Icon-Path=${HOME}/.local/share/icons/hicolor/scalable/apps/jetbrains-toolbox.svg
-X-Installed-Icon-Cache-Path=,~/.local/share/icons/hicolor
-StartupNotify=false
-X-GNOME-Autostart-Delay=10
-X-MATE-Autostart-Delay=10
-X-KDE-autostart-after=panel" > ~/.local/share/applications/jetbrains-toolbox.desktop
+  echo "Jetbrains Toolbox is now installed. To automatically build .desktop entry, open for the first time the app running this binary: /opt/jetbrains-toolbox/bin/jetbrains-toolbox"
 else
   echo "You already have jetbrains-toolbox! If you still want to set it up with this script, remove it first. It is at $(command -v toolbox)"
 fi
